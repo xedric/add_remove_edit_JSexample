@@ -42,6 +42,7 @@ $(document).ready(function() {
 	    // stop load of link
 		event.preventDefault();
 
+		// if details are hidden then show, else hide
 		if($(this).parent().parent().children( ".item_age_profession" ).is(":hidden"))
 		{
 			$(this).parent().parent().children( ".item_age_profession" ).slideDown("slow");
@@ -59,7 +60,6 @@ $(document).ready(function() {
 	    // stop load of link
 		event.preventDefault();
 
-		// animation
 		$(this).parent().fadeOut( "slow", function() {
 			// animation finished -> remove element
 			$(this).parent().remove();
@@ -116,8 +116,6 @@ $(document).ready(function() {
 		if(edit_first_name !== "" && edit_last_name !== "" && edit_age !== "" && edit_profession !== "")
 		{
 			// add element to list of items
-			//var edit_item = "<span class=\"span_first_name\">" + edit_first_name + "</span> <span class=\"span_last_name\">" + edit_last_name + 
-			//			"</span><a class=\"item_remove\" href=\"#\">Remove</a><a class=\"item_edit\" href=\"#\">Edit</a>";
 			var edit_item = "<div class=\"first_row\">" +
 								"<span class=\"span_first_name\">" + edit_first_name + "</span> " +
 								"<span class=\"span_last_name\">" + edit_last_name + "</span>" +
