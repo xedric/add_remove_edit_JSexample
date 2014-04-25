@@ -26,9 +26,14 @@ $(document).ready(function() {
 
 	// remove parent of 'remove' link when link is clicked
 	$('#list_of_items').on('click', '.item_remove', function(event) {
-	    event.preventDefault();
+	    // stop load of link
+		event.preventDefault();
 
-	    $(this).parent().remove();
+		// animation
+		$(this).parent().fadeOut( "slow", function() {
+			// animation finished -> remove element
+			$(this).remove();
+		});
 	});
 
 });
@@ -109,44 +114,3 @@ $(document).ready(function() {
 			});
 		});
 	});*/
-
-
-
-
-/*
-
-<span class="inputname">
-    Project Images:
-    <a href="#" class="add_project_file">
-        <img src="images/add_small.gif" border="0" />
-    </a>
-</span>
-
-<ul class="project_images">
-    <li><input name="upload_project_images[]" type="file" /></li>
-</ul>
-
------------------------
-
-add_item
-
-// Add new input with associated 'remove' link when 'add' button is clicked.
-$('.add_project_file').click(function(e) {
-    e.preventDefault();
-
-    $(".project_images").append(
-        '<li>'
-      + '<input name="upload_project_images[]" type="file" class="new_project_image" /> '
-      + '<a href="#" class="remove_project_file" border="2"><img src="images/delete.gif" /></a>'
-      + '</li>');
-});
-
-// Remove parent of 'remove' link when link is clicked.
-$('.project_images').on('click', '.remove_project_file', function(e) {
-    e.preventDefault();
-
-    $(this).parent().remove();
-});
-
-
-*/

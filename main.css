@@ -19,10 +19,10 @@ a {
 	text-decoration: none;
 }
 
-a:link {color: black;}      /* unvisited link */
-a:visited {color: black;}  /* visited link */
-a:hover {color: black;}  /* mouse over link */
-a:active {color: black;}  /* selected link */
+a:link {	color: black; }
+a:visited {	color: black; }
+a:hover {	color: black; }
+a:active {	color: black; }
 
 #top_form {
 	width: 400px;
