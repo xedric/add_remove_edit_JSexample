@@ -7,24 +7,51 @@ $(document).ready(function() {
     	event.preventDefault();
   	
     	// get values from form
-		var first_name = $( "#first_name" ).val();
-		var last_name = $( "#last_name" ).val();
+		var first_name 	= $("#first_name").val();
+		var last_name 	= $("#last_name").val();
+		var age 		= $("#age").val();
+		var profession	= $("#profession").val();
 
 		// if there was input in the textfields we add it as an item
-		if(first_name !== "" && last_name !== "")
+		if(first_name !== "" && last_name !== "" && age !== "" && profession !== "")
 		{
 			// empty the form
 			$('#item_form').trigger("reset");
 
 			// add element to list of items
-			var item = "<div class=\"item\"><span class=\"span_first_name\">" + first_name + "</span> <span class=\"span_last_name\">" + last_name + 
-						"</span><a class=\"item_remove\" href=\"#\">Remove</a><a class=\"item_edit\" href=\"#\">Edit</a></div>";
+			var item = "<div class=\"item\">" +
+							"<div class=\"first_row\">" +
+								"<span class=\"span_first_name\">" + first_name + "</span> " +
+								"<span class=\"span_last_name\">" + last_name + "</span>" +
+								"<a class=\"item_remove\" href=\"#\">Remove</a>"+
+								"<a class=\"item_edit\" href=\"#\">Edit</a>"+
+								"<a class=\"item_details\" href=\"#\">Details</a>" +
+							"</div>"+
+							"<div class=\"item_age_profession\">Age: "+age+" Profession: "+profession+"</div>"+
+						"</div>";
 			$( "#list_of_items" ).append( item );
 
 			// set focus back in the textbox
 			$( "#first_name" ).focus();
 		}
     });
+
+	// react to click on detail-button
+	$('#list_of_items').on('click', '.item_details', function(event) {
+	    // stop load of link
+		event.preventDefault();
+
+		if($(this).parent().parent().children( ".item_age_profession" ).is(":hidden"))
+		{
+			$(this).parent().parent().children( ".item_age_profession" ).slideDown("slow");
+		}
+		else
+		{
+			$(this).parent().parent().children( ".item_age_profession" ).slideUp( "slow", function() {
+    			$(this).parent().parent().children( ".item_age_profession" ).hide();
+  			});
+		}
+	});
 
 	// remove parent of 'remove' link when link is clicked
 	$('#list_of_items').on('click', '.item_remove', function(event) {
