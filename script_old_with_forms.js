@@ -1,40 +1,7 @@
 $(document).ready(function() {
 
 	// react to when form is submitted
-	$("#add_item").click(function(event) {
-    	event.preventDefault();
-  	
-    	// get values from form
-		var first_name = $( "#first_name" ).val();
-		var last_name = $( "#last_name" ).val();
-
-		// if there was input in the textfields we add it as an item
-		if(first_name !== "" && last_name !== "")
-		{
-			// empty the form
-			$('#item_form').trigger("reset");
-
-			// add element to list of items
-			var item = "<div class=\"item\"><span class=\"first_name\">" + first_name + "</span> <span class=\"last_name\">" + last_name + 
-						"</span><a class=\"item_remove\" href=\"#\">Remove</a><a class=\"item_edit\" href=\"#\">Edit</a></div>";
-			$( "#list_of_items" ).append( item );
-
-			// set focus back in the textbox
-			$( "#first_name" ).focus();
-		}
-    });
-
-	// remove parent of 'remove' link when link is clicked
-	$('#list_of_items').on('click', '.item_remove', function(event) {
-	    event.preventDefault();
-
-	    $(this).parent().remove();
-	});
-
-});
-
-	// react to when form is submitted
-	/*$( "#item_form" ).submit(function( event ) {
+	$( "#item_form" ).submit(function( event ) {
 		// stop form from being sent
 		event.preventDefault();
 
@@ -108,8 +75,8 @@ $(document).ready(function() {
 				}
 			});
 		});
-	});*/
-
+	});
+});
 
 
 
@@ -127,8 +94,6 @@ $(document).ready(function() {
 </ul>
 
 -----------------------
-
-add_item
 
 // Add new input with associated 'remove' link when 'add' button is clicked.
 $('.add_project_file').click(function(e) {
