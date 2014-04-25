@@ -17,7 +17,7 @@ $(document).ready(function() {
 			$('#item_form').trigger("reset");
 
 			// add element to list of items
-			var item = "<div class=\"item\"><span class=\"first_name\">" + first_name + "</span> <span class=\"last_name\">" + last_name + 
+			var item = "<div class=\"item\"><span class=\"span_first_name\">" + first_name + "</span> <span class=\"span_last_name\">" + last_name + 
 						"</span><a class=\"item_remove\" href=\"#\">Remove</a><a class=\"item_edit\" href=\"#\">Edit</a></div>";
 			$( "#list_of_items" ).append( item );
 
@@ -47,8 +47,10 @@ $(document).ready(function() {
 		{
 			editIsOpen = true;
 			// get values from span !!!!!!!!!!!!!!BUGG!!!!!!!!!!!!!!!!!!!!
-			var first_name = $( ".first_name" ).html();
-			var last_name = $( ".last_name" ).html();
+			//var first_name = $( ".span_first_name" ).html();
+			//var last_name = $( ".span_last_name" ).html();
+			var first_name = $(this).parent().children( ".span_first_name" ).html();
+			var last_name = $(this).parent().children( ".span_last_name" ).html();
 
 			// create form as variable
 			var edit_form = "<form class=\"form_edit\">"+
@@ -78,7 +80,7 @@ $(document).ready(function() {
 		if(edit_first_name !== "" && edit_last_name !== "")
 		{
 			// add element to list of items
-			var edit_item = "<span class=\"first_name\">" + edit_first_name + "</span> <span class=\"last_name\">" + edit_last_name + 
+			var edit_item = "<span class=\"span_first_name\">" + edit_first_name + "</span> <span class=\"span_last_name\">" + edit_last_name + 
 						"</span><a class=\"item_remove\" href=\"#\">Remove</a><a class=\"item_edit\" href=\"#\">Edit</a>";
 
 			// replace form with div after animation
